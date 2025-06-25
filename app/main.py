@@ -1,6 +1,10 @@
 class Car:
     def __init__(
             self, comfort_class: int, clean_mark: int, brand: int) -> None:
+        if not (1 <= comfort_class <= 7):
+            raise ValueError("comfort_class must be between 1 and 10")
+        if not (1 <= clean_mark <= 10):
+            raise ValueError("clean_mark must be between 0 and 10")
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -14,6 +18,10 @@ class CarWashStation:
         average_rating: float,
         count_of_ratings: int
     ) -> None:
+        if distance_from_city_center <= 0:
+            raise ValueError("distance_from_city_center must be greater than 0")
+        if not (0.0 <= average_rating <= 5.0):
+            raise ValueError("average_rating must be between 0.0 and 5.0")
         self.distance_from_city_center = distance_from_city_center
         self.clean_power = clean_power
         self.average_rating = average_rating
