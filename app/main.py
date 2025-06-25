@@ -18,8 +18,10 @@ class CarWashStation:
         average_rating: float,
         count_of_ratings: int
     ) -> None:
-        if distance_from_city_center <= 0:
-            raise ValueError("distance_from_city_center must be greater than 0")
+        if distance_from_city_center < 1:
+            raise ValueError(
+                "distance_from_city_center must be greater than 1"
+            )
         if not (0.0 <= average_rating <= 5.0):
             raise ValueError("average_rating must be between 0.0 and 5.0")
         self.distance_from_city_center = distance_from_city_center
